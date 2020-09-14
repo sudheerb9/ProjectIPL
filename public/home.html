@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ashvamedha</title>
+
+    <meta name="google-signin-client_id" content="839417916525-nlqdemnqokqf8755tgaa9r3jefp5u9fr.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- bootstrap, popper.js, jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <style>
+    .invisible{
+        display:none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container" id= "match_div">
+        hi <p id="name"></p>
+
+        <button id="quickstart-sign-in">signout</button>
+        
+        <div id="match">
+
+        </div>
+        
+        <form>
+            <div class="form-group row">
+                <div class="col-6" id="team-1">
+
+                </div>
+
+                <div class="col-6" id="team-2">
+
+                </div>
+            </div>   
+            <input type="button"  class="btn btn-primary teams" name="submit" value="Submit Teams" onclick="ValidateTeamSelection()"/>
+
+            <br>
+            <div class="form-group invisible" id="mom">
+                <select class="custom-select" id="select" name="mom">
+                    <option disabled selected value> -- select an option -- </option>
+                    
+                </select>
+                <select class="custom-select" id="winner" name="winner">
+                    <option disabled selected value> -- select an option -- </option>
+                    
+                </select>
+            </div>
+            <input type="button"  class="btn btn-primary mom invisible" id="mom_submit" name="submit" value="Submit Man of the Match" onclick="ValidatemomSelection()"/>
+        </form>    
+    </div>
+    <div class="container row" id="submitted_div">
+    </div>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
+    <!-- custom -->
+    <script src="js/config.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/contest_page.js"></script>
+
+    
+</body>
+</html>    

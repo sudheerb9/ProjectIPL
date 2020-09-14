@@ -1,0 +1,94 @@
+#buttonText{
+    position: relative;
+    margin-left: 3px;
+    top: -11px; 
+    font-size: 110%;
+    color:white;
+}
+
+body{
+    background-color: lightpink;
+    background-image: url(water.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+
+ #bodyImage3 ,#bodyImage5 ,#bodyImage7{
+    clear: both;
+    float: left;
+    margin-top: 10px;
+    position: relative;
+    left: 50px;
+    border:1px solid rgb(99, 25, 15);
+    border-radius: 2px;
+}
+#bodyImage1 {
+    clear: both;
+    float: left;
+    position: relative;
+    left: 50px;
+    top: -4px;
+    border:1px solid rgb(99, 25, 15);
+    border-radius: 2px;
+}
+ #bodyImage4 ,#bodyImage6 ,#bodyImage8{
+    float: right;
+    margin-top: 10px;
+    position: relative;
+    right: 50px;
+    border:1px solid rgb(99, 25, 15);
+    border-radius: 2px;
+}
+#bodyImage2 {
+    float: right;
+    position: relative;
+    right: 50px;
+    top:-4px;
+    border:1px solid rgb(99, 25, 15);
+    border-radius: 2px;
+}
+
+#container{
+    width:750px;
+    margin: auto;
+    background-color: rgb(38, 38, 63);
+    position: relative;
+    top: -5px;
+    min-width: 700px;
+    background-image: url(ipl.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 70%;
+    min-height: 723px;
+    opacity: 0.8;
+    position: relative;
+    border-radius: 3px;
+}
+
+#googleImg{
+    position: relative;
+    top: 2px;
+    left: -5px;
+    border-radius: 2px;
+}
+
+.header{
+    font-family: Nunito;
+    color: rgb(56, 173, 20);
+    font-size: 125%;
+}
+
+#signIn{
+    border: none;
+    background-color: rgb(53, 117, 212);
+    border-radius: 3px;
+}
+
+#signIn:hover {
+    background-color: #3f42f3;
+}
+
+.signIndiv{
+    text-align: center; 
+    position: relative;
+    top: 515px;
+}

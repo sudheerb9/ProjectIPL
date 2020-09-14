@@ -1,0 +1,22 @@
+body{
+    background: url(water.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    color: white;
+}
+
+#container{
+    background: url(water1.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 960px;
+    height: 1000px;
+    margin: auto;
+}
+
+#userProfile{
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }

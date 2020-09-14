@@ -1,0 +1,88 @@
+body{
+    background: url(water.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.8;
+    color: white;
+  }
+#btn{
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    color: black;
+    background-color: lightgray;
+}
+button[style]:hover {
+    color: black;
+    background-color: lightgray;
+}
+button{
+    position: relative;
+    left: 100px;
+}
+#btn{
+  margin-left: 250px;
+   
+}
+
+#container{
+    width: 960px;
+    margin: auto;
+    background-color: aqua;
+    position: relative;
+    top: -40px;
+    font-style: Tangerine;
+    font-weight: 400;
+    padding: 10px;
+    overflow: hidden;
+    background: url(water1.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.heading{
+  text-align:center;
+  display:block;
+  border:1px solid #eee;
+  border-radius: 8px;
+  background-color:rgb(97, 148, 148);
+}
+.input{
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 400px;
+    border-radius:5px;
+    background-color:rgb(97, 148, 148);
+}
+img[alt="userImage"]{
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 2px solid pink;
+}
+#mom{
+   
+}
+.player{
+    position:absolute;
+    left: 300px;
+  }
+.player1{
+    position:absolute;
+    left: 850px;
+}
+#team1{
+    float: left;
+}
+#team2{
+    margin-top: 40px;
+    margin-left: 550px;
+}
+#userProfile{
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+  
