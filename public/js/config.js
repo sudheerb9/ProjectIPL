@@ -1,3 +1,4 @@
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAQJjVoR8hwyEKTDW6LJjo_EMZtRBav6wY",
   authDomain: "iplfantasyleague-ashvamedha.firebaseapp.com",
@@ -5,13 +6,7 @@ const firebaseConfig = {
   projectId: "iplfantasyleague-ashvamedha",
   storageBucket: "iplfantasyleague-ashvamedha.appspot.com",
   messagingSenderId: "839417916525",
-  appId: "1:839417916525:web:a2a00a53da5c0c949f6364",
-  measurementId: "G-B0E62WXC0T",
-  clientId: "839417916525-nlqdemnqokqf8755tgaa9r3jefp5u9fr.apps.googleusercontent.com",
-  scopes: [
-             "email",
-             "profile",
-             "https://www.googleapis.com/auth/calendar"
-    ]
+  appId: "1:839417916525:web:0d82540f6e5ba9d89f6364",
+  measurementId: "G-B7DGZ1FL84"
 };
 firebase.initializeApp(firebaseConfig);

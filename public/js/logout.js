@@ -39,6 +39,7 @@ function initApp() {
             userRef.once("value", function(snapshot) {
                 console.log('hi' + displayName);
                 document.getElementById('name').innerHTML = displayName;
+                document.getElementById('userDropdown').innerHTML += '<img class="img-profile rounded-circle" src="'+photoURL+'">';
                 //use photoURL email
 
             });    

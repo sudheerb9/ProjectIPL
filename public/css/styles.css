@@ -1,0 +1,443 @@
+/*Fonts*/
+
+/*Rewaly*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+/*open sans*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+/*End Fonts*/
+
+/*Global CSS*/
+body{
+    background-color: #EFEFF6;
+}
+
+html, body, html * {
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Raleway', sans-serif;
+  scroll-behavior: smooth;
+
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+
+
+.container-fluid {
+    padding:0;
+    margin: 0;
+}
+
+.row { margin: 0}
+
+.color-pink {color: #33afc4}
+
+.margin-top-05 { margin-top: 0.5em !important; }
+.margin-top-10 { margin-top: 1.0em !important; }
+.margin-top-15 { margin-top: 1.5em !important; }
+.margin-top-20 { margin-top: 2.0em !important; }
+.margin-top-25 { margin-top: 2.5em !important; }
+.margin-top-30 { margin-top: 3.0em !important; }
+
+
+
+#about_content h2,
+#myService h2,
+#myResume h2,
+#myProjects h2,
+#myResearch h2,
+#contactMe h2 {
+
+    font-size:38px;
+}
+
+/*space between sections */
+
+#aboutMe, #myService, #myResume , #myProjects, #myResearch, #contactMe{
+    margin-top: 60px;
+    padding-top: 50px;
+}
+
+#contactMe{
+    padding-bottom: 50px;
+}
+
+/* Start underline with Font awesome <3 */
+.line-block {
+    padding: 15px 0;
+}
+.line-block  span {
+    position: relative;
+    top: -10px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+.line-block  span::before {
+    width: 90px;
+    height: 2px;
+    background: #33afc4;
+    left: -100px;
+    top: 6px;
+    content: '';
+    position: absolute;
+}
+
+.line-block  span::after{
+    width: 90px;
+    height: 2px;
+    background: #33afc4;
+    right: -100px;
+    top: 6px;
+    content: '';
+    position: absolute;
+}
+.line-block  span i{
+    color: #33afc4;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* End underline with Font awesome <3 */
+
+/*-------------------------------------------------------------------------------*/
+
+/*Start Navbar*/
+#navBar {
+    width: 100%;
+}
+
+#navBar div.navbar-default.navbar-fixed-top{
+ background-color: transparent;
+}
+
+#navBar div.navbar-header a {
+    color: #fff;
+    /*font-family: 'Carter One', cursive;*/
+    font-size: 38px;
+}
+
+
+#navBar div.collapse ul li a {
+    color: #fff;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover{
+    background: transparent;
+}
+
+/*.navbar-nav { text-align: center}*/
+
+#navBar.navbar-default {background-color: rgba(0,0,0,.2) }
+
+#myNavbartop  .hvr-underline-from-center::before  {background: #33afc4}
+/*End Navbar*/
+
+
+/*Start Banner*/
+#banner {height: 750px}
+
+#banner.col-md-12 , #banner.col-xs-12 {padding: 0;}
+
+#banner div.banner-image {
+    background: url('../img/ipl1.jpg');
+    background-size: cover;
+    height: 750px;
+    opacity: 1;
+}
+
+.tag{
+    color: white;
+}
+
+#banner div.banner-text {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width:100%;
+    height: 700px;
+    padding-top: 250px;
+}
+
+#banner div.banner-text h1 {
+    color:#fff;
+    text-decoration: #505050;
+    font-size: 60px;
+    /*font-family: 'lato', sans-serif;*/
+    font-weight: bold;
+}
+
+#banner div.banner-text p {
+    font-size: 36px;
+    color:#33afc4;
+    /*font-family: 'Cabin', sans-serif;*/
+}
+
+#banner div.banner-text ul {padding-top: 30px}
+
+#banner div.banner-text ul li {margin:15px}
+
+#banner div.banner-text ul li a,
+#banner div.banner-text ul li a:link {color: #fff; text-decoration: none}
+
+#banner div.banner-text ul li a:hover {color: #33afc4; text-decoration: none}
+
+.overlay{
+    background-color: #000;
+    opacity: 0.7;
+    height: 750px;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+/*End Banner*/
+
+/*Start About Me*/
+#about_content p{
+    line-height: 1.6;
+    font-size: 16px;
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+#skills {padding-top: 30px;}
+#skills .progress-bar {
+    background-color: #33afc4;
+}
+#skills .progress {
+    height: 25px;
+    background-color: #000;
+    border-radius: 0;
+    }
+#skills .skill_title, #skills .skill_count {
+    font-size: 18px;
+    font-weight: bold;
+}
+#skills .skill_count {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+/*End About Me*/
+
+/*Start My Services*/
+
+.block {margin-bottom: 10px}
+
+
+
+.box {
+    padding: 20px 20px;
+    background-color: #fff;
+    height: 200px;
+    vertical-align: middle;
+}
+/*
+.box h3 {
+    font-family: 'Poppins', sans-serif;
+}
+.box p {
+    font-family: 'Open Sans', sans-serif;
+}
+*/
+.new{
+    height: 250px;
+}
+
+.marg{
+    margin-left: 20px;
+}
+
+.boxone,.boxtow {
+    height: 150px;
+    width: 150px;
+    border: 1px solid #33afc4;
+    position: absolute;
+}
+
+.boxone{
+    border-bottom: 0;
+    border-right: 0;
+    top: 15px;
+    left: 30px;
+}
+.boxtow {
+    border-top: 0;
+    border-left: 0;
+    bottom: 15px;
+    right: 30px
+}
+
+.pic-service i {
+    border-radius: 50%;
+    border: 2px solid #33afc4;
+    padding: 16px;
+    height: 80px;
+    width: 80px;
+    background-color: transparent;
+}
+
+.pic-service { position: relative; top:0;}
+
+    /*End My Services*/
+
+/*Start Resume*/
+
+.timeline-content p {
+    padding-top: 20px;
+    text-align: center;
+}
+
+/*
+div.timeline-content h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+div.timeline-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+*/
+
+/*End Education*/
+
+/*Start Portfolio*/
+#myProjects{height: auto}
+
+.btn-filter {
+    padding: 10px 12px;
+    border: 1px solid #33afc4;
+    border-radius: 5px;
+    color: #33afc4;
+    width: 200px;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-size: 14px;
+}
+
+.btn-filter:hover {color: #fff; background-color: #33afc4; cursor: pointer;}
+
+/*.btn-filter:active {color: #fff; background-color: #33afc4}*/
+
+.active-portfolio {
+    color: #fff;
+    background-color: #33afc4 !important;
+}
+
+.hvr-ripple-out {
+    background-color: #EFEFF6;
+    border-color:#EFEFF6;
+}
+/*End Portfolio*/
+
+
+/*Start Footer*/
+footer {
+    vertical-align: middle;
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+footer p {
+    padding-top: 30px;
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+/*End Footer*/
+
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Media Query*/
+
+
+@media only screen and (max-width:767px) {
+
+/*Start Banner*/
+#banner, #banner div.banner-image,.overlay {height: 100px}
+
+
+#banner div.banner-text {
+    width:100%;
+    height: 100px;
+    top:0;
+    left:0;
+    padding-top: 80px;
+}
+
+
+#banner div.banner-text h1 {font-size: 28px}
+#banner div.banner-text p {font-size: 20px}
+#banner div.banner-text ul li {margin:5px}
+#banner div.banner-text ul li i{ font-size: 20px;}
+/*End Banner*/
+
+/*Start About me*/
+#aboutMe {margin-top: 30px;}
+
+/*End About me*/
+    
+
+/*Start Resume*/
+#myResume {margin-bottom: 30px}
+#myResume > div {margin-bottom: 30px}
+
+/*End Resume*/
+
+}
+
+
+
+
+
+
+/* PROJECT CARDS*/
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-container a{
+  color: #000;
+  text-decoration: none;
+}
+
+.card{
+  margin: 10px;
+}
+
+@media (min-width: 800px){
+  .card-container{
+    flex-wrap: no-wrap;
+  }
+}
+
+
+/* RESUME */
+
+.btn-black-line {
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  background: none;
+  padding: 9px 20px;
+}
+  .btn-black-line:hover {
+    color: #33afc4;
+    border-color: #33afc4;
+  }
+
+
+
+/* a:hover ,.hovi {
+       background-color:black;
+  } */
