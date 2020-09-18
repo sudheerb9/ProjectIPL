@@ -85,8 +85,8 @@ matchRef.once("value", function(snapshot) {
     document.getElementById('img_team1').innerHTML = '<img class="img-fluid" style="display:block; margin: auto;" src="img/'+team1+'.png">';
     document.getElementById('img_team2').innerHTML = '<img class="img-fluid" style="display:block; margin: auto;" src="img/'+team2+'.png">';
     console.log('fetching winner_div')
-    document.getElementById('winner_div').innerHTML+= '<div class="col-12 col-md-6">\
-                <div class="card border-left-warning shadow py-2 player">\
+    document.getElementById('winner_div').innerHTML+= '<div class="col-12 col-md-6 offset-md-2">\
+                <div class="card border-left-primary shadow py-2 player">\
                   <div class="card-body">\
                     <div class="row no-gutters align-items-center">\
                       <div class="col mr-2">\
@@ -98,8 +98,8 @@ matchRef.once("value", function(snapshot) {
                   </div>\
                 </div>\
               </div>\
-              <div class="col-12 col-md-6">\
-                <div class="card border-left-primary shadow py-2 player">\
+              <div class="col-12 col-md-6 offset-md-2">\
+                <div class="card border-left-warning shadow py-2 player">\
                   <div class="card-body">\
                     <div class="row no-gutters align-items-center">\
                       <div class="col mr-2">\
@@ -213,9 +213,6 @@ function mom(team1, team2){
                     <div class="col mr-2">\
                       <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
                         <input class="players1" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+team1[i]+'">'+team1[i]+'\
-                        <div class="col-auto ml-auto">\
-                          <i class="fas fa-plus text-gray-300"></i>\
-                        </div>\
                       </label>\
                     </div>\
                   </div>\
@@ -229,10 +226,7 @@ function mom(team1, team2){
                     <div class="col mr-2">\
                       <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
                         <input class="players2" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+team2[i]+'">'+team2[i]+'\
-                        <div class="col-auto ml-auto">\
-                          <i class="fas fa-plus text-gray-300"></i>\
-                        </div>\
-                      </label>\
+                        </label>\
                     </div>\
                   </div>\
                 </div>\
@@ -269,8 +263,8 @@ function ValidatemomSelection(){
         var myJSON1 = JSON.stringify(team1);
         var myJSON2 = JSON.stringify(team2);
         console.log(myJSON1);
-        var mom_val = $("input[name=mom]").val();
-        var win_val = $("input[name=winner]").val();
+        var mom_val = $("input[name=mom]:checked").val();
+        var win_val = $("input[name=winner]:checked").val();
         //contest to be changed here.
         firebase.database().ref('users/'+ uid + '/contest1').set({
             mom: mom_val,

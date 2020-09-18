@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Contest | Ashvamedha </title>
+  <title>Leaderboard | Ashvamedha </title>
     <link rel="icon" type="image/png" href="img/Untitled design (4).png" sizes="32x32" />
 
   <!-- Custom fonts for this template-->
@@ -49,14 +49,14 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="home.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Contest</span></a>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item ">
+      <li class="nav-item">
         <a class="nav-link" href="champ.html">
           <i class="fas fa-fw fa-trophy"></i>
           <span>Champion's Den</span></a>
@@ -78,7 +78,7 @@
       </li>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="contest_leaderboard.html">
           <i class="fas fa-fw fa-medal"></i>
           <span>Contestwise </span></a>
@@ -128,7 +128,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="name"></span>
-
+                
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -149,77 +149,11 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" style="color:white;" >
+        <div class="container-fluid" style="color:white;">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Contest 1</h1>
-          <div class="container-fluid" id="eleven_div">
-            <div class="match_container container row" > 
-              <div class="col-5" id="img_team1">
-                
-              </div>
-              <div class="col align-self-center">
-              <img class="img-fluid" src="img/Vs icon.png">
-              </div>
-              <div class="col-5" id="img_team2">
-                
-              </div>
-            </div>  
-
-            <div class="players_container container row">
-              <div class="col-12 h5 mb-4 text-gray-800">
-                Select your playing XI for both the teams
-              </div>
-              <div class="col-12 h5 mb-4 text-gray-800">
-                Submissions for playing XI of each match will not accepted after <b>7:00PM</b> IST for night matches and <b>3:00PM</b> IST for day matches
-              </div>
-              <div class="col-md-6 col-12"  id="players_team1">
-                
-              </div>
-              <br>
-              <div class="col-md-6 col-12" id="players_team2">
-                
-              </div> 
-              <div class="col-12" align="center" style="margin-top:20px;">
-                <button class="btn btn-primary" type="submit" onclick="ValidateTeamSelection()">Next</button>
-              </div> 
-          </div>
-        </div>
-        <div class="container invisible row" id="mom_div">
-          <div class="col-12 h5 mb-4 text-gray-800">
-            Select your man of the match player.
-          </div>
-          <div class="col-md-6 col-12"  id="mom_team1">
-              
-          </div>
-          <br>
-          <div class="col-md-6 col-12" id="mom_team2">
-            
-          </div> 
-          <div class="col-12 h5 mb-4 text-gray-800" style="margin-top:20px;">
-            Select your winning teams
-          </div>
-          <div class="col-2"></div>
-          <div class="col-8" style="display: block; margin: auto;" id="winner_div">
-            
-          </div>
-          <div class="col-2"></div>
-          <div class="col-12" style="margin-top:20px;" align="center">
-              <button class="btn btn-primary" type="submit" onclick="ValidatemomSelection()">Submit Responses</button>
-          </div> 
-        </div>
-        <div class="container-fluid invisible row" id="submitted_div">
-          <p class="col-12 text-gray-800 h5">Hey buddy! You have already submitted your reponses.<br> </p>
-          <p class="col-12 text-gray-800 h5" id="submitted_win"></p>
-
-          <p class="col-12 text-gray-800 h5" id="submitted_mom"></p>
-          <div class="col-12 col-md-6" id="submitted_team1">
-            
-          </div>
-          <div class="col-12 col-md-6" id="submitted_team2">
-            
-          </div>
-          
+          <h1 class="h3 mb-4 text-gray-800">Contestwise Leaderboard</h1>
+          <p class="text-gray-800">Coming Soon </p>          
         </div>
         <!-- /.container-fluid -->
 
@@ -231,7 +165,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Developed by Web and Design, IIT Bhubaneswar</span>
+            <span>Developed by Web and Design, IIT Bhubaneswar.</span>
           </div>
         </div>
       </footer>
@@ -275,7 +209,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-<!-- firebase -->
+      <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
@@ -284,7 +218,6 @@
     <!-- custom -->
     <script src="js/config.js"></script>
     <script src="js/logout.js"></script>
-    <script src="js/contest_page.js"></script>
 </body>
 
 </html>

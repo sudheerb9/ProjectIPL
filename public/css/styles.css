@@ -150,7 +150,7 @@ a:hover{
 #banner.col-md-12 , #banner.col-xs-12 {padding: 0;}
 
 #banner div.banner-image {
-    background: url('../img/ipl1.jpg');
+    background: url('../img/ipl1.jpg') no-repeat top center fixed;
     background-size: cover;
     height: 750px;
     opacity: 1;
@@ -362,15 +362,19 @@ footer p {
 @media only screen and (max-width:767px) {
 
 /*Start Banner*/
-#banner, #banner div.banner-image,.overlay {height: 100px}
-
+#banner div.banner-image {
+    background: url('../img/ipl1_mob.jpg') no-repeat top center fixed;
+    background-size:cover;
+    width: 100%;
+    opacity: 1;
+}
 
 #banner div.banner-text {
     width:100%;
     height: 100px;
     top:0;
     left:0;
-    padding-top: 80px;
+    padding-top: 35vh;
 }
 
 

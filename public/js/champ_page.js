@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     console.log('fetching playoff teams')
                     team.forEach(function(snapshot){
                         document.getElementById('submitted_playoff').innerHTML+= '<div class="col-md-6 col-12">\
-                       <div class="card shadow py-2 player">\
+                       <div class="card border-left-dark shadow py-2 player">\
                             <div class="card-body">\
                               <div class="row no-gutters align-items-center">\
                                 <div class="col mr-2">\
@@ -39,8 +39,10 @@ firebase.auth().onAuthStateChanged(function(user) {
                 });
 
                 firebase.database().ref('users/'+ uid + '/champion').on('value', function(team){
+                  team.forEach(function(snapshot){
                     console.log('fetching champion')    
-                    document.getElementById('submitted_champion').innerHTML+='And you have chosen '+team +'as the champion team among the above listed playoff teams';
+                    document.getElementById('submitted_champion').innerHTML +='And you have chosen '+snapshot.val() +' as the champion team among the above listed playoff teams';
+                  });
                 });
                 
             }
@@ -92,7 +94,7 @@ function champ(playoff){
     console.log('fetching playoff data for slecting champion')
     for(i=0; i<playoff.length; i++){
         document.getElementById("champion_inner_div").innerHTML += '<div class="col-md-6 col-12">\
-              <div class="card shadow py-2 player">\
+              <div class="card border-left-dark shadow py-2 player">\
                 <div class="card-body">\
                   <div class="row no-gutters align-items-center">\
                     <div class="col mr-2">\
@@ -130,10 +132,10 @@ function ValidateChampSelection(){
         alert('submitting');
         var myJSON1 = JSON.stringify(playoff);
         console.log(myJSON1);
-        var champ_val = $("input[name=champion]").val();
+        var champ_val = $("input[name=champion]:checked").val();
         //contest to be changed here.
-        firebase.database().ref('users/'+ uid +'/').set({
-            champion: champ_val
+        firebase.database().ref('users/'+ uid +'/champion').set({
+            0: champ_val
         }).then(function(){
             var i;
             console.log('champ inserted into db')

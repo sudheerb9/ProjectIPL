@@ -11236,7 +11236,7 @@ input[type="checkbox"]{
 cursor: pointer;
 -webkit-appearance: none;
 appearance: none;
-background: #;
+background: #f00;
 border-radius: 1px;
 box-sizing: border-box;
 position: relative;

@@ -79,14 +79,26 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="branch_leaderboard.html">
+        <a class="nav-link" href="contest_leaderboard.html">
           <i class="fas fa-fw fa-medal"></i>
-          <span>Branchwise </span></a>
+          <span>Contestwise </span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
+      <li class="nav-item ">
+        <a class="nav-link" href="rules.html">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Rules</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-fw fa-user"></i>
+          <span>My Profile </span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -115,8 +127,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="name"></span>
+                
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -142,16 +154,18 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Profile</h1>
           
-          <form class="row">
+          <div class="row">
             <div class="col-2"></div>
-            <div class="col-8 card shadow">
-              <img class="img-profile rounded-circle" width="120px" height="120px" style="display: block; margin: auto; margin-top: 20px; margin-bottom: 20px; " src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+            <div class=" col-md-8 card shadow">
+              <div id="profile_img">
+                
+              </div>
               <div class="row">
                 <div class="col-5 h5 text-gray-800">
                   <p align="right" style="display: block; margin: auto;">Name:</p>
                 </div>
                 <div class="col-6 h5 text-gray-800">
-                  <p style="display: block; margin: auto;">Bulusu Sri Datta Sudheer</p>
+                  <p style="display: block; margin: auto;" id="profile_name"></p>
                 </div>
               </div><br>
 
@@ -159,17 +173,18 @@
                 <div class="col-5 h5 text-gray-800">
                   <p align="right" style="display: block; margin: auto;">Branch:</p>
                 </div>
-                <div class="col-6 h5 text-gray-800">
-                  <select class="custom-select col-8">
-                    <option value="CS">BTech Computer Science</option>
-                    <option value="EC">BTech Electronics </option>
-                    <option value="EE">BTech Electrical</option>
-                    <option value="ME">BTech Mechanical</option>
-                    <option value="MM">BTech Metallurgy</option>
-                    <option value="CE">BTech Civil</option>
-                    <option value="MT">MTech 19 + MSc 19</option>
-                    <option value="PHD">Ph.D</option>
-                    <option value="ALU">Alumni</option>
+                <div class="col-6 h5 text-gray-800" id="branch_div">
+                  <select class="custom-select col-8" id="select">
+                    <option value="Computer Science">BTech Computer Science</option>
+                    <option value="Electronics">BTech Electronics </option>
+                    <option value="Electrical">BTech Electrical</option>
+                    <option value="Mechanical">BTech Mechanical</option>
+                    <option value="Metallurgy">BTech Metallurgy</option>
+                    <option value="Civil">BTech Civil</option>
+                    <option value="M2">MTech19 + MSc19</option>
+                    <option value="M1">MTech20 + MSc20</option>
+                    <option value="Ph.D">Ph.D</option>
+                    <option value="Alumni">Alumni</option>
                   </select>
                 </div>
               </div><br>
@@ -179,7 +194,7 @@
                   <p align="right" style="display: block; margin: auto;">Points Scored:</p>
                 </div>
                 <div class="col-6 h5 text-gray-800">
-                  <p style="display: block; margin: auto;">0</p>
+                  <p style="display: block; margin: auto;" id="points"></p>
                 </div>
               </div><br>
 
@@ -188,18 +203,18 @@
                   <p align="right" style="display: block; margin: auto;">Streak Points:</p>
                 </div>
                 <div class="col-6 h5 text-gray-800">
-                  <p style="display: block; margin: auto;">0</p>
+                  <p style="display: block; margin: auto;" id="streak"></p>
                 </div>
               </div><br>
 
-              <div align="center" class="none">
-                <input type="submit" name="submit" class="btn btn-md btn-primary" value="Submit" />
+              <div align="center" class="none" id="submit">
+                <button class="btn btn-primary" type="submit" onclick="submit()">Submit</button>
               </div><br>
               
             </div>
             <div class="col-2"></div>
             
-          </form>
+          </div>
 
         </div><br>
         <!-- /.container-fluid -->
@@ -212,7 +227,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Developed by Web and Design, IIT Bhubaneswar</span>
           </div>
         </div>
       </footer>
@@ -242,7 +257,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="">Logout</a>
+          <button class="btn btn-secondary" type="button" id="quickstart-sign-in">Logout</button>
         </div>
       </div>
     </div>
@@ -256,7 +271,16 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
+      <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
+    <!-- custom -->
+    <script src="js/config.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 
 </html>
