@@ -61,7 +61,6 @@ function initApp() {
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var providerData = user.providerData;
-            // [START_EXCLUDE]
             var count = 0;
             var userRef =  firebase.database().ref('users/');
             userRef.once("value", function(snapshot) {

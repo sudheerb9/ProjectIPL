@@ -2,86 +2,25 @@ var contest = 'contest1';
 var match = 'match1';
 var team1color = 'primary';
 var team2color = 'warning';
-var uid;
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        // User is signed in. 
         console.log('user signed in');
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
         var isAnonymous = user.isAnonymous;
-        uid = user.uid;
+        var uid = user.uid;
         var providerData = user.providerData;
-        // [START_EXCLUDE]
-        firebase.database().ref('users/'+ uid + '/'+contest +'/winner').on('value', function(winner){
-            if(winner.exists()){
-                console.log('winner chosen');
-                document.getElementById("eleven_div").innerHTML='';
-                document.getElementById("mom_div").innerHTML='';
-                $("#eleven_div").addClass('invisible');
-
-                $("#submitted_div").removeClass('invisible');
-
-                firebase.database().ref('users/'+ uid + '/'+contest +'/team111').on('value', function(team){
-                  console.log('fetching team 1 11')
-                    team.forEach(function(snapshot){
-                        document.getElementById('submitted_team1').innerHTML+= '\
-                       <div class="card border-left-'+team1color+' shadow py-2 player">\
-                            <div class="card-body">\
-                              <div class="row no-gutters align-items-center">\
-                                <div class="col mr-2">\
-                                  <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
-                                    '+ snapshot.val() +'\
-                                  </label>\
-                                </div>\
-                              </div>\
-                            </div>\
-                          </div>\
-                        ';
-                    });
-                });
-
-                firebase.database().ref('users/'+ uid + '/'+contest +'/team211').on('value', function(team){
-                    console.log('team 2 11');
-                    team.forEach(function(snapshot){
-                        document.getElementById('submitted_team2').innerHTML+='\
-                        <div class="card border-left-'+team2color+' shadow py-2 player">\
-                            <div class="card-body">\
-                              <div class="row no-gutters align-items-center">\
-                                <div class="col mr-2">\
-                                  <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
-                                    '+ snapshot.val() +'\
-                                  </label>\
-                                </div>\
-                              </div>\
-                            </div>\
-                          </div>\
-                        ';
-                    });
-                });
-                
-                firebase.database().ref('users/'+ uid + '/'+contest +'/winner').on('value', function(snapshot){
-                    console.log('fetching winner')
-                    document.getElementById('submitted_win').innerHTML+='Your winning team is '+snapshot.val()+'<br>'
-                        
-                });
-
-                firebase.database().ref('users/'+ uid + '/'+contest +'/mom').on('value', function(snapshot){
-                    console.log('fetching mom')
-                    document.getElementById('submitted_mom').innerHTML+='Your Man of the Match player is '+snapshot.val()+'<br>'
-                        
-                });
-            }
-        });
-        
-        // [END_EXCLUDE]
+        firebase.database().ref('users/'+ uid + '/acctype').on('value', function(snapshot){
+            if(snapshot.val()== 'user') window.location = 'index.html';
+        })
     }
 });
 
 //match to be changed here 
-var matchRef = firebase.database().ref('matches/'+match +'');
+var matchRef = firebase.database().ref('matches/'+match+'');
 matchRef.once("value", function(snapshot) {
     var team1 = snapshot.val().team1;
     var team2 = snapshot.val().team2;
@@ -155,6 +94,7 @@ matchRef.once("value", function(snapshot) {
     }); 
 });  
 
+
 function ValidateTeamSelection()  
 {  
   console.log('validating team selection')
@@ -187,49 +127,49 @@ function ValidateTeamSelection()
     } 
 }
 
-var team1 = [];
-var team2 = [];
+var finalteam1 = [];
+var finalteam2 = [];
 
 
 function ok(){
   console.log('pushing xi tto array');
     $.each($("input[name='players1']:checked"), function(){
-        team1.push($(this).val());
+        finalteam1.push($(this).val());
     });
-    console.log("Choosen team1: " + team1.join(", "));
+    console.log("Choosen team1: " + finalteam1.join(", "));
 
     
     $.each($("input[name='players2']:checked"), function(){
-        team2.push($(this).val());
+        finalteam2.push($(this).val());
     });
-    console.log("Choosen team2: " + team2.join(", "));
-    mom(team1, team2);
+    console.log("Choosen team2: " + finalteam2.join(", "));
+    mom(finalteam1, finalteam2);
 }
 
 
-function mom(team1, team2){
+function mom(finalteam1, finalteam2){
     var i;
     console.log('fetching data for mom')
-    for(i=0; i<team1.length; i++){
+    for(i=0; i<finalteam1.length; i++){
         document.getElementById("mom_team1").innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
                 <div class="card-body">\
                   <div class="row no-gutters align-items-center">\
                     <div class="col mr-2">\
                       <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
-                        <input class="players1" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+team1[i]+'">'+team1[i]+'\
+                        <input class="players1" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+finalteam1[i]+'">'+finalteam1[i]+'\
                       </label>\
                     </div>\
                   </div>\
                 </div>\
               </div>';
     }
-    for(i=0; i<team2.length; i++){
+    for(i=0; i<finalteam2.length; i++){
         document.getElementById("mom_team2").innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
                 <div class="card-body">\
                   <div class="row no-gutters align-items-center">\
                     <div class="col mr-2">\
                       <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
-                        <input class="players2" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+team2[i]+'">'+team2[i]+'\
+                        <input class="players2" name="mom" type="checkbox" style="position:absolute; right:0;" value="'+finalteam2[i]+'">'+finalteam2[i]+'\
                         </label>\
                     </div>\
                   </div>\
@@ -238,6 +178,9 @@ function mom(team1, team2){
     }
     
 }
+
+var finalmom;
+var finalwinner;
 
 function ValidatemomSelection(){
   console.log('validating mom and winner selection')
@@ -261,45 +204,124 @@ function ValidatemomSelection(){
         alert("Please select only 1 Man of the Match and 1 winner");  
         return false;  
     }
-    
-    else{
-        alert('submitting');
-        var myJSON1 = JSON.stringify(team1);
-        var myJSON2 = JSON.stringify(team2);
-        console.log(myJSON1);
-        var mom_val = $("input[name=mom]:checked").val();
-        var win_val = $("input[name=winner]:checked").val();
-        //contest to be changed here.
-        firebase.database().ref('users/'+ uid + '/'+contest +'').set({
-            mom: mom_val,
-            winner: win_val
-        }).then(function(){
-            var i;
-            console.log('mom winner inserted in db')
-            firebase.database().ref('users/'+ uid + '/'+contest +'/team111').set({
-                //unable to use loops here.
-                0:team1[0], 1:team1[1], 2:team1[2], 3:team1[3], 4:team1[4], 5:team1[5], 6:team1[6], 7:team1[7], 8:team1[8], 9:team1[9], 10:team1[10]
-            }).then(function(){
-               firebase.database().ref('users/'+ uid + '/'+contest +'/team211').set({
-                0:team2[0], 1:team2[1], 2:team2[2], 3:team2[3], 4:team2[4], 5:team2[5], 6:team2[6], 7:team2[7], 8:team2[8], 9:team2[9], 10:team2[10]
-                })
-            })
-            alert ("Responses submitted successfully");
-            location.reload();
-        });
+    else {
+        finalmom = $("input[name=mom]:checked").val();
+        finalwinner = $("input[name=winner]:checked").val();
+        getLeaderBoard();
     }
-}      
-
-var now = new Date();
-var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0, 0, 0) - now;
-if (millisTill10 < 0) {
-    document.getElementById("eleven_div").innerHTML = '<p class="h5 text-gray-800">Time is up! You cannot submit the responses now.</p>';
-    document.getElementById("mom_div").innerHTML = '';
 }
-console.log(millisTill10);
-setTimeout(function(){
-  console.log('Time is up!');
-  document.getElementById("eleven_div").innerHTML = '<p class="h5 text-gray-800">Time is up! You cannot submit the responses now.</p>';
-  document.getElementById("mom_div").innerHTML = '';
-  alert("Time is up!");
-  }, millisTill10);
+
+
+
+var result_array;
+var arr;
+var len;
+var item;
+var assoc;
+
+
+function getLeaderBoard(){
+    console.log('Hi');
+firebase.database().ref('users/').on('value', function(snapshot){
+    snapshot.forEach(function(Snapshot){
+        console.log(Snapshot.key);
+
+        firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/winner').on('value', function(winner){
+            var points=0;
+            var streak=0;
+            var streak_hault=0;
+            var team1=[];
+            var team2=[];
+            if(winner.exists()){
+
+                var team1Ref = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/team111');
+                team1Ref.once("value", function(team) {
+                    team.forEach(function(players) {
+                        console.log('team 1 11');
+                        team1.push(players.val());
+                    })
+                }).then(function(){
+                    var team2Ref = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/team211');
+                    team2Ref.once("value", function(team) {
+                        team.forEach(function(players) {
+                            console.log('team 2 11');
+                            team2.push(players.val());
+                        })
+                    }).then(function(){
+                        // firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/mom').on('value', function(mom){
+                        //     console.log('mom');
+                        //     if(mom.val() == finalmom) points += 10;
+                        // })
+
+                        // firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/winner').on('value', function(winner){
+                        //     console.log('winner');
+                        //     if(winner.val() == finalwinner) points += 10;
+                        // })
+
+                        result_array = [];
+                        arr = team1.concat(finalteam1);
+                        len = arr.length;
+                        assoc = {};
+                        console.log('team1'+len);
+                        while(len--) {
+                            item = arr[len];
+
+                            if(!assoc[item]) 
+                            { 
+                                result_array.unshift(item);
+                                assoc[item] = true;
+                            }
+                        }
+                        console.log('team1 '+ result_array);
+                        points += 11- result_array.length + 11;
+                        console.log('team1 points '+ points);
+                        result_array = [];
+                        arr = team2.concat(finalteam2);
+                        len = arr.length;
+                        assoc = {};
+                        console.log('team2'+len);
+                        while(len--) {
+                            item = arr[len];
+
+                            if(!assoc[item]) 
+                            { 
+                                result_array.unshift(item);
+                                assoc[item] = true;
+                            }
+                        }
+                        console.log('team2 '+ result_array);
+                        points += 11- result_array.length + 11;
+                        console.log('team2 points '+ points);
+                    })
+
+                }).then(function(){
+
+                    console.log('points of '+ Snapshot.key+ ' is' + points);
+
+                    if(streak<15){
+                        streak += 1;
+                        points += streak;
+                    } 
+
+                    console.log('Final points of '+ Snapshot.key+ ' is'+ points);
+                })
+               
+            }
+            else{
+                console.log('Player '+ Snapshot.key+ ' hasnt participated in the contest');
+                if(streak_hault==1){
+                    streak = 0;
+                    streak_hault = 0;
+                }
+                else if (streak_hault == 0){
+                    streak = Math.floor(streak/2);
+                    streak_hault = 1;
+                }
+                console.log('Player '+ Snapshot.key+ ' streak points '+ streak + ' ,streak hault is '+ streak_hault);
+            }
+        })
+
+    })
+})
+console.log('over');
+}

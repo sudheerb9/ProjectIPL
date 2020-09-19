@@ -133,7 +133,6 @@ function ValidateChampSelection(){
         var myJSON1 = JSON.stringify(playoff);
         console.log(myJSON1);
         var champ_val = $("input[name=champion]:checked").val();
-        //contest to be changed here.
         firebase.database().ref('users/'+ uid +'/champion').set({
             0: champ_val
         }).then(function(){
