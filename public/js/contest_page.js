@@ -1,7 +1,7 @@
-var contest = 'contest1';
-var match = 'match1';
+var contest = 'contest2';
+var match = 'match2';
 var team1color = 'primary';
-var team2color = 'warning';
+var team2color = 'danger';
 var uid;
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {

@@ -221,125 +221,65 @@ var assoc;
 
 
 function getLeaderBoard(){
-    console.log('Hi');
+console.log('Hi');
 firebase.database().ref('users/').on('value', function(snapshot){
     snapshot.forEach(function(Snapshot){
         console.log(Snapshot.key);
 
         firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/winner').on('value', function(winner){
             var points=0;
-            var streak=0;
-            var streak_hault=0;
-            var team1=[];
-            var team2=[];
+            var matchpoints;
+            var finalpoints;
             if(winner.exists()){
 
-                var team1Ref = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/team111');
-                team1Ref.once("value", function(team) {
-                    team.forEach(function(players) {
-                        console.log('team 1 11');
-                        team1.push(players.val());
+                var contestpointsRef = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/contestpoints');
+                contestpointsRef.once("value", function(contestpoints) {
+                    console.log('contestpoints');
+                    points += contestpoints.val()
+                })
+                .then(function(){
+                    var momRef = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/mom');
+                    momRef.once("value", function(mom) {    
+                        console.log('mom');
+                        if(mom.val() == finalmom) points += 10;
                     })
-                }).then(function(){
-                    var team2Ref = firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/team211');
-                    team2Ref.once("value", function(team) {
-                        team.forEach(function(players) {
-                            console.log('team 2 11');
-                            team2.push(players.val());
-                        })
-                    }).then(function(){
-                        result_array = [];
-                        arr = team1.concat(finalteam1);
-                        len = arr.length;
-                        assoc = {};
-                        console.log('team1'+len);
-                        while(len--) {
-                            item = arr[len];
-
-                            if(!assoc[item]) 
-                            { 
-                                result_array.unshift(item);
-                                assoc[item] = true;
-                            }
-                        }
-                        console.log('team1 '+ result_array);
-                        points += 11- result_array.length + 11;
-                        console.log('team1 points '+ points);
-                        result_array = [];
-                        arr = team2.concat(finalteam2);
-                        len = arr.length;
-                        assoc = {};
-                        console.log('team2'+len);
-                        while(len--) {
-                            item = arr[len];
-
-                            if(!assoc[item]) 
-                            { 
-                                result_array.unshift(item);
-                                assoc[item] = true;
-                            }
-                        }
-                        console.log('team2 '+ result_array);
-                        points += 11- result_array.length + 11;
-                        console.log('team2 points '+ points);
-                    })
-
-                }).then(function(){
-
-                    console.log('points of '+ Snapshot.key+ ' is' + points);
-
-                    if(streak<15){
-                        points += streak;
-                        streak += 1;
-                    } 
-
-                    console.log('Final points of '+ Snapshot.key+ ' is'+ points);
-                }).then(function(){
-                    console.log('played streak updated '+ streak);
-                    firebase.database().ref('users/'+ Snapshot.key).update({
-                        streak_points: streak
-                    })
-                    
                     .then(function(){
-                        firebase.database().ref('users/'+ Snapshot.key +'/'+contest).update({
-                            contestpoints: points
+                        firebase.database().ref('users/'+ Snapshot.key + '/'+contest +'/winner').on('value', function(winner){
+                            console.log('winner');
+                            if(winner.val() == finalwinner) points += 10;
                         })
-                        console.log('played contestpoints updated '+ points);
+                    })
+                })
+                .then(function(){
+                    console.log('points of '+ Snapshot.key+ ' is' + points);
+                    var contestpointsRef = firebase.database().ref('users/'+ Snapshot.key+'/'+contest  + '/contestpoints');
+                    contestpointsRef.once("value", function(contestpoints) {    
+                        console.log('contestpoints');
+                        matchpoints = contestpoints.val() + points;
+                    }).then(function(){
+                        console.log('match points = '+ matchpoints)
+                        firebase.database().ref('users/'+ Snapshot.key +'/'+contest ).update({
+                            contestpoints: matchpoints
+                        })
+                    })
+
+                }).then(function(){
+                    var totalpointsRef = firebase.database().ref('users/'+ Snapshot.key + '/points');
+                    totalpointsRef.once("value", function(totalpoints) {      
+                        console.log('totalpoints');
+                        finalpoints = totalpoints.val() + points
                     })
                     .then(function(){
                         firebase.database().ref('users/'+ Snapshot.key ).update({
-                            points: points
+                            points: finalpoints
                         })
-                        console.log('played points updated '+ points);
+                        console.log('played points updated '+ finalpoints);
                     })
                 })
                
             }
             else{
-                console.log('Player '+ Snapshot.key+ ' hasnt participated in the contest');
-                if(streak_hault==1){
-                    streak = 0;
-                    streak_hault = 0;
-                }
-                else if (streak_hault == 0){
-                    streak = Math.floor(streak/2);
-                    streak_hault = 1;
-                }
-                console.log('Player '+ Snapshot.key+ ' streak points '+ streak + ' ,streak hault is '+ streak_hault);
-                
-                firebase.database().ref('users/'+ Snapshot.key).update({
-                    streak_points: streak,
-                    streak_hault: streak_hault
-                })
-                
-                .then(function(){
-                    console.log('not played streak updated '+ streak);
-                    console.log('not played streak hault updated '+ streak_hault);
-                    firebase.database().ref('users/'+ Snapshot.key +'/'+contest).update({
-                        contestpoints: 0
-                    })
-                    console.log('not played contestpoints updated '+ points);
-                })
+                console.log('else');
             }
         })
 

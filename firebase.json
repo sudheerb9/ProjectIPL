@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "site": "sudheerb",
+    "site": "iplfantasyleague-ashvamedha",
     "public": "public",
     "ignore": [
       "firebase.json",
