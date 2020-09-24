@@ -89,9 +89,9 @@ function initApp() {
                         photoURL: photoURL,
                         acctype:'user',
                         branch: '',
-                        points:'0',
-                        streak_points:'0',
-                        streak_hault:'0'
+                        points: 0,
+                        streak_points: 0,
+                        streak_hault: 0
                         }).then(function(){
                         alert('Welcome ' + displayName + ' !');
                         window.location.href = 'profile.html';

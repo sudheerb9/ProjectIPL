@@ -1,8 +1,9 @@
-var contest = 'contest2';
-var match = 'match2';
-var team1color = 'primary';
-var team2color = 'danger';
+var contest = 'contest6';
+var match = 'match6';
+var team1color = 'danger';
+var team2color = 'dark';
 var uid;
+document.getElementById('contest').innerHTML = contest;
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in. 
@@ -117,11 +118,11 @@ matchRef.once("value", function(snapshot) {
               </div>';
                                                    
 
-    var player1Ref =  firebase.database().ref('players/' + team1);
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Indian Batsmen');
     player1Ref.once("value", function(snapshot) {
         snapshot.forEach(function(playerSnapshot) {
             console.log('fetching squad team1');
-            document.getElementById('players_team1').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+            document.getElementById('players_team1_indian_bat').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
                 <div class="card-body">\
                   <div class="row no-gutters align-items-center">\
                     <div class="col mr-2">\
@@ -134,13 +135,106 @@ matchRef.once("value", function(snapshot) {
               </div>';
 
         });
-    });       
+    });
 
-    var player2Ref =  firebase.database().ref('players/' + team2);
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Indian All Rounders');
+    player1Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team1');
+            document.getElementById('players_team1_indian_all').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players1" name="players1" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+
+        });
+    });
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Indian Bowlers');
+    player1Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team1');
+            document.getElementById('players_team1_indian_bowl').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players1" name="players1" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+
+        });
+    });
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Overseas Batsmen');
+    player1Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team1');
+            document.getElementById('players_team1_over_bat').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players1" name="players1" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+
+        });
+    });
+
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Overseas All Rounders');
+    player1Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team1');
+            document.getElementById('players_team1_over_all').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players1" name="players1" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+
+        });
+    });
+    var player1Ref =  firebase.database().ref('players/' + team1 +'/Overseas Bowlers');
+    player1Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team1');
+            document.getElementById('players_team1_over_bowl').innerHTML += '<div class="card border-left-'+team1color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players1" name="players1" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+
+        });
+    });
+
+
+    var player2Ref =  firebase.database().ref('players/' + team2 +'/Indian Batsmen');
     player2Ref.once("value", function(snapshot) {
         snapshot.forEach(function(playerSnapshot) {
             console.log('fetching squad team2');
-            document.getElementById('players_team2').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+            document.getElementById('players_team2_indian_bat').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
                 <div class="card-body">\
                   <div class="row no-gutters align-items-center">\
                     <div class="col mr-2">\
@@ -153,6 +247,93 @@ matchRef.once("value", function(snapshot) {
               </div>';
         });
     }); 
+        var player2Ref =  firebase.database().ref('players/' + team2 +'/Indian All Rounders');
+    player2Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team2');
+            document.getElementById('players_team2_indian_all').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players2" name="players2" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+        });
+    });
+        var player2Ref =  firebase.database().ref('players/' + team2 +'/Indian Bowlers');
+    player2Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team2');
+            document.getElementById('players_team2_indian_bowl').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players2" name="players2" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+        });
+    });
+
+    var player2Ref =  firebase.database().ref('players/' + team2 +'/Overseas Batsmen');
+    player2Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team2');
+            document.getElementById('players_team2_over_bat').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players2" name="players2" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+        });
+    }); 
+        var player2Ref =  firebase.database().ref('players/' + team2 +'/Overseas All Rounders');
+    player2Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team2');
+            document.getElementById('players_team2_over_all').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players2" name="players2" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+        });
+    });
+        var player2Ref =  firebase.database().ref('players/' + team2 +'/Overseas Bowlers');
+    player2Ref.once("value", function(snapshot) {
+        snapshot.forEach(function(playerSnapshot) {
+            console.log('fetching squad team2');
+            document.getElementById('players_team2_over_bowl').innerHTML += '<div class="card border-left-'+team2color+' shadow py-2 player">\
+                <div class="card-body">\
+                  <div class="row no-gutters align-items-center">\
+                    <div class="col mr-2">\
+                      <label class="row mb-0 font-weight-bold text-gray-800" style="width: 100%;">\
+                        <input class="players2" name="players2" type="checkbox" style="position:absolute; right:0;" value="'+ playerSnapshot.val() +'">'+ playerSnapshot.val() +'\
+                      </label>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+        });
+    });
+
 });  
 
 function ValidateTeamSelection()  
